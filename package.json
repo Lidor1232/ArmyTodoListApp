@@ -26,7 +26,9 @@
     "react-native-safearea-height": "^1.0.5",
     "@react-navigation/stack": "^6.2.2",
     "react-native-gesture-handler": "^2.5.0",
-    "react-native-screens": "^3.15.0"
+    "react-native-screens": "^3.15.0",
+    "react-native-responsive-screen": "^1.4.2",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
