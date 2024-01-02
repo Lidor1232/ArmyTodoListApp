@@ -1,7 +1,7 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'http://192.168.1.189:3000';
 
 export const todoListAxios = axios.create({
   baseURL: BASE_URL,

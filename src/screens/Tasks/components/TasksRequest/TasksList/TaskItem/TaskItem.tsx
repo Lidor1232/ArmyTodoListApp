@@ -1,9 +1,12 @@
 import React, {FC, useMemo} from 'react';
 import {ITask} from '../../../../../../utills/types';
-import {StyleSheet, View} from 'react-native';
+import {Pressable, StyleSheet, View} from 'react-native';
 import {Text} from '../../../../../../components/Text/Text';
 import {COLORS} from '../../../../../../assets/colors/colors';
 import {onGetFormattedDate} from '../../../../../../utills/js/dates/dates';
+import IconTrash from '../../../../../../assets/svg/trashRed.svg';
+import IconEdit from '../../../../../../assets/svg/editOrange.svg';
+import {onPressDeleteTask} from './TaskItem.controller';
 
 interface IProps {
   item: ITask;
@@ -21,6 +24,12 @@ export const TaskItem: FC<IProps> = React.memo(({item}) => {
 
   return (
     <View style={styles.container}>
+      <Pressable onPress={onPressDeleteTask}>
+        <IconTrash height={25} width={25} />
+      </Pressable>
+      <Pressable>
+        <IconEdit height={25} width={25} />
+      </Pressable>
       <Text style={styles.createdAt}>{`נוצר ב - ${formattedCreatedAt}`}</Text>
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.description}>{item.description}</Text>
