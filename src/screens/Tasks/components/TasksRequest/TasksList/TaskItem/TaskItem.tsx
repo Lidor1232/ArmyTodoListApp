@@ -1,7 +1,6 @@
 import React, {FC, useCallback, useMemo} from 'react';
 import {ITask} from '../../../../../../utills/types';
 import {StyleSheet, View} from 'react-native';
-import {Text} from '../../../../../../components/Text/Text';
 import {COLORS} from '../../../../../../assets/colors/colors';
 import {onGetFormattedDate} from '../../../../../../utills/js/dates/dates';
 import IconTrash from '../../../../../../assets/svg/trashRed.svg';
@@ -10,9 +9,13 @@ import {onPressDeleteTask, onPressUpdateTask} from './TaskItem.controller';
 import {useNavigation} from '@react-navigation/native';
 import {OptionButton} from './UI/OptionButton/OptionButton';
 import {CompleteTaskButton} from './CompleteTaskButton/CompleteTaskButton';
+import {SectionContainer} from './UI/SectionContainer/SectionContainer';
+import {SectionTitle} from './UI/SectionTitle/SectionTitle';
+import {SectionText} from './UI/SectionText/SectionText';
 
 interface IProps {
   item: ITask;
+  index: number;
 }
 
 export const TaskItem: FC<IProps> = React.memo(({item}) => {
@@ -50,9 +53,18 @@ export const TaskItem: FC<IProps> = React.memo(({item}) => {
           <IconEdit height={25} width={25} />
         </OptionButton>
       </View>
-      <Text style={styles.createdAt}>{`נוצר ב - ${formattedCreatedAt}`}</Text>
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.description}>{item.description}</Text>
+      <SectionContainer>
+        <SectionTitle>Created At</SectionTitle>
+        <SectionText>{formattedCreatedAt}</SectionText>
+      </SectionContainer>
+      <SectionContainer>
+        <SectionTitle>Title</SectionTitle>
+        <SectionText>{item.title}</SectionText>
+      </SectionContainer>
+      <SectionContainer>
+        <SectionTitle>Description</SectionTitle>
+        <SectionText>{item.description}</SectionText>
+      </SectionContainer>
       <CompleteTaskButton item={item} />
     </View>
   );
@@ -68,18 +80,6 @@ const styles = StyleSheet.create({
   nav: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  title: {
-    marginBottom: 6,
-    fontSize: 16,
-    textAlign: 'right',
-  },
-  description: {
-    marginBottom: 16,
-    textAlign: 'right',
-  },
-  createdAt: {
-    textAlign: 'right',
-    marginBottom: 16,
+    marginBottom: 24,
   },
 });

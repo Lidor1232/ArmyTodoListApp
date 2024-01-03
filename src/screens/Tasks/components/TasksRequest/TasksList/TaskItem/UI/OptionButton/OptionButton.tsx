@@ -16,6 +16,6 @@ export const OptionButton: FC<IProps> = React.memo(({children, onPress}) => {
 
 const styles = StyleSheet.create({
   button: {
-    padding: 5,
+    padding: 10,
   },
 });
