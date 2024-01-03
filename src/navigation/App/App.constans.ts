@@ -11,11 +11,12 @@ export const screenNames = {
 export const screensOptions = {
   tasks: {
     headerShown: false,
+    title: 'Tasks',
   },
   createTask: {
-    headerShown: false,
+    title: 'Create Task',
   },
   updateTask: {
-    headerShown: false,
+    title: 'Update Task',
   },
 };

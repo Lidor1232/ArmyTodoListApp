@@ -16,7 +16,7 @@ interface IProps {
 }
 
 export const Loader: FC<IProps> = React.memo(
-  ({color = COLORS.white, style, size = 'large'}) => {
+  ({color = COLORS.secondary, style, size = 'large'}) => {
     const loaderSize = useMemo(() => onGetLoaderSize({size}), [size]);
 
     return (

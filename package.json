@@ -30,7 +30,9 @@
     "react-native-responsive-screen": "^1.4.2",
     "moment": "^2.29.4",
     "react-native-svg": "^12.3.0",
-    "react-native-svg-transformer": "^1.0.0"
+    "react-native-svg-transformer": "^1.0.0",
+    "react-hook-form": "^7.43.9",
+    "react-native-toast-message": "^2.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -2,9 +2,9 @@ import {StyleSheet, View, ViewStyle} from 'react-native';
 import React, {FC, ReactNode, useMemo} from 'react';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {shallowEqual, useSelector} from 'react-redux';
-import {IRootState} from '../../store/reducers/combineReducer.reducer';
-import {onNormalizeDeviceStatusBarHeight} from '../../store/services/device.service';
-import {COLORS} from '../../assets/colors/colors';
+import {IRootState} from '../../../store/reducers/combineReducer.reducer';
+import {onNormalizeDeviceStatusBarHeight} from '../../../store/services/device.service';
+import {COLORS} from '../../../assets/colors/colors';
 
 interface IProps {
   children: ReactNode;

@@ -2,7 +2,7 @@ export const COLORS = {
   primary: '#ccdffc',
   // primary: '#f3347e',
   primaryRGB: '219, 11, 112',
-  secondary: '#6f11cf',
+  secondary: '#3268a8',
   third: '#00a9f7',
   blackBackground: '#121212',
   loadingBackgroundColor: '#555',

@@ -1,4 +1,6 @@
 import {screenNames} from './App/App.constans';
+import {store} from '../store/store';
+import {updateTaskSetTaskId} from '../store/actions/updateTask.actions';
 
 export function onNavigate({
   screenName,
@@ -20,10 +22,23 @@ export function onNavigateToCreateTask({navigation}: {navigation: any}): void {
   });
 }
 
-export function onNavigateToUpdateTask({navigation}: {navigation: any}): void {
+export function onNavigateToUpdateTask({
+  navigation,
+  initData,
+}: {
+  navigation: any;
+  initData: {
+    taskId: string;
+  };
+}): void {
+  store.dispatch(
+    updateTaskSetTaskId({
+      taskId: initData.taskId,
+    }),
+  );
   onNavigate({
     navigation,
     screenName: screenNames.UpdateTask,
-    routeParams: {},
+    routeParams: initData,
   });
 }

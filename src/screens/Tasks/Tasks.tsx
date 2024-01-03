@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import ScreenContainer from '../../components/ScreenContainer/ScreenContainer';
+import ScreenContainer from '../../components/Screen/ScreenContainer/ScreenContainer';
 import {TasksRequest} from './components/TasksRequest/TasksRequest';
 import {onMount} from './Tasks.controller';
 
