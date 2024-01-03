@@ -4,6 +4,8 @@ import {IUpdateTaskForm, IUpdateTaskRenderForm} from '../UpdateTaskForm';
 import {Controller} from 'react-hook-form';
 import {rules} from './TitleInput.constans';
 import {InputWithValidation} from '../../../../../../components/Form/InputWithValidation/InputWithValidation';
+import {shallowEqual, useSelector} from 'react-redux';
+import {IRootState} from '../../../../../../store/reducers/combineReducer.reducer';
 
 interface IProps {
   control: Control<IUpdateTaskForm>;
@@ -13,6 +15,12 @@ interface IProps {
 
 export const TitleInput: FC<IProps> = React.memo(
   ({control, isError, errorMessage}) => {
+    const currentTitle = useSelector(
+      (state: IRootState) =>
+        state.updateTask.requests.getTaskRequest.task?.title,
+      shallowEqual,
+    );
+
     const _render = useCallback(
       ({field: {onChange, onBlur, value}}: IUpdateTaskRenderForm) => (
         <InputWithValidation
@@ -33,6 +41,7 @@ export const TitleInput: FC<IProps> = React.memo(
         render={_render}
         name="title"
         rules={rules}
+        defaultValue={currentTitle}
       />
     );
   },

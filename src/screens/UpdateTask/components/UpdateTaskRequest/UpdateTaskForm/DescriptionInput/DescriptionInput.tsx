@@ -4,6 +4,8 @@ import {IUpdateTaskForm, IUpdateTaskRenderForm} from '../UpdateTaskForm';
 import {rules} from './DescriptionInput.constans';
 import {InputWithValidation} from '../../../../../../components/Form/InputWithValidation/InputWithValidation';
 import {StyleSheet} from 'react-native';
+import {shallowEqual, useSelector} from 'react-redux';
+import {IRootState} from '../../../../../../store/reducers/combineReducer.reducer';
 
 interface IProps {
   control: Control<IUpdateTaskForm>;
@@ -13,6 +15,12 @@ interface IProps {
 
 export const DescriptionInput: FC<IProps> = React.memo(
   ({control, errorMessage, isError}) => {
+    const currentDescription = useSelector(
+      (state: IRootState) =>
+        state.updateTask.requests.getTaskRequest.task?.description,
+      shallowEqual,
+    );
+
     const _render = useCallback(
       ({field: {onChange, onBlur, value}}: IUpdateTaskRenderForm) => (
         <InputWithValidation
@@ -34,6 +42,7 @@ export const DescriptionInput: FC<IProps> = React.memo(
         render={_render}
         name="description"
         rules={rules}
+        defaultValue={currentDescription}
       />
     );
   },

@@ -3,11 +3,15 @@ import ScreenContainer from '../../components/Screen/ScreenContainer/ScreenConta
 import {StyleSheet} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {UpdateTaskRequest} from './components/UpdateTaskRequest/UpdateTaskRequest';
-import {onUnmount} from './UpdateTask.controller';
+import {onMount, onUnmount} from './UpdateTask.controller';
 
 interface IProps {}
 
 export const UpdateTask: FC<IProps> = React.memo(({}) => {
+  useEffect(() => {
+    onMount();
+  }, []);
+
   useEffect(() => {
     return function () {
       onUnmount();

@@ -82,3 +82,11 @@ export async function deleteTask({
   });
   return res.data;
 }
+
+export async function getTask({taskId}: {taskId: string}): Promise<ITask> {
+  const res = await todoListAxios({
+    method: 'GET',
+    url: `/task/${taskId}/details`,
+  });
+  return res.data;
+}
