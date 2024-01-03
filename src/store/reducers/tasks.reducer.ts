@@ -1,5 +1,6 @@
 import {IAction, ITask} from '../../utills/types';
 import {
+  TASKS_ADD_TASK,
   TASKS_FETCH_ALL,
   TASKS_FETCH_FAIL,
   TASKS_FETCH_MORE_FAIL,
@@ -129,6 +130,18 @@ export function reducer(state = initialState, action: IAction) {
           tasksRequest: {
             ...state.requests.tasksRequest,
             isFetchAll: true,
+          },
+        },
+      };
+
+    case TASKS_ADD_TASK:
+      return {
+        ...state,
+        requests: {
+          ...state.requests,
+          tasksRequest: {
+            ...state.requests.tasksRequest,
+            tasks: [...state.requests.tasksRequest.tasks, action.payload.task],
           },
         },
       };

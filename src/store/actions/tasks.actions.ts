@@ -7,6 +7,7 @@ export const TASKS_FETCH_MORE_REQUEST = 'TASKS_FETCH_MORE_REQUEST';
 export const TASKS_FETCH_MORE_SUCCESS = 'TASKS_FETCH_MORE_SUCCESS';
 export const TASKS_FETCH_MORE_FAIL = 'TASKS_FETCH_MORE_FAIL';
 export const TASKS_FETCH_ALL = 'TASKS_FETCH_ALL';
+export const TASKS_ADD_TASK = 'TASKS_ADD_TASK';
 
 export function tasksFetchRequest() {
   return {
@@ -49,5 +50,12 @@ export function tasksFetchMoreFail() {
 export function tasksFetchAll() {
   return {
     type: TASKS_FETCH_ALL,
+  };
+}
+
+export function tasksAddTask(data: {task: ITask}) {
+  return {
+    type: TASKS_ADD_TASK,
+    payload: data,
   };
 }
