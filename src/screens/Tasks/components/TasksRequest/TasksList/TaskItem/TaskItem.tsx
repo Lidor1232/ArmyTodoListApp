@@ -24,7 +24,7 @@ export const TaskItem: FC<IProps> = React.memo(({item}) => {
   const formattedCreatedAt = useMemo(
     () =>
       onGetFormattedDate({
-        format: 'HH:MM DD-MM-YYYY',
+        format: 'HH:mm DD-MM-YYYY',
         date: item.createdAt,
       }),
     [item],
