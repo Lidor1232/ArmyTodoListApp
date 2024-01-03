@@ -34,10 +34,16 @@ export const TaskItem: FC<IProps> = React.memo(({item}) => {
     });
   }, [navigation, item]);
 
+  const _onPressDeleteTask = useCallback(() => {
+    onPressDeleteTask({
+      item,
+    });
+  }, [item]);
+
   return (
     <View style={styles.container}>
       <View style={styles.nav}>
-        <OptionButton onPress={onPressDeleteTask}>
+        <OptionButton onPress={_onPressDeleteTask}>
           <IconTrash height={25} width={25} />
         </OptionButton>
         <OptionButton onPress={_onPressUpdateTask}>
