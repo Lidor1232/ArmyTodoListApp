@@ -2,7 +2,12 @@ import {FlatList} from 'react-native';
 import React, {FC} from 'react';
 import {shallowEqual, useSelector} from 'react-redux';
 import {IRootState} from '../../../../../store/reducers/combineReducer.reducer';
-import {onKeyExtractor, onRenderItem} from './TasksList.controller';
+import {
+  onEndReached,
+  onKeyExtractor,
+  onRenderItem,
+} from './TasksList.controller';
+import {ListFooter} from './ListFooter/ListFooter';
 
 interface IProps {}
 
@@ -15,8 +20,11 @@ export const TasksList: FC<IProps> = React.memo(({}) => {
   return (
     <FlatList
       data={tasks}
+      showsVerticalScrollIndicator={false}
       renderItem={onRenderItem}
       keyExtractor={onKeyExtractor}
+      ListFooterComponent={ListFooter}
+      onEndReached={onEndReached}
     />
   );
 });
