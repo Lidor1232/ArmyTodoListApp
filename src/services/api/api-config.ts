@@ -1,7 +1,7 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 
-export const BASE_URL = 'https://armytodolist.com/';
+export const BASE_URL = 'https://armytodolist.com';
 
 export const todoListAxios = axios.create({
   baseURL: BASE_URL,
