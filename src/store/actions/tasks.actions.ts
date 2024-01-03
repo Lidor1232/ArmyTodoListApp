@@ -9,6 +9,7 @@ export const TASKS_FETCH_MORE_FAIL = 'TASKS_FETCH_MORE_FAIL';
 export const TASKS_FETCH_ALL = 'TASKS_FETCH_ALL';
 export const TASKS_ADD_TASK = 'TASKS_ADD_TASK';
 export const TASKS_REMOVE_TASK = 'TASKS_REMOVE_TASK';
+export const TASKS_SET_TASK = 'TASKS_SET_TASK';
 
 export function tasksFetchRequest() {
   return {
@@ -64,6 +65,13 @@ export function tasksAddTask(data: {task: ITask}) {
 export function tasksRemoveTask(data: {taskId: string}) {
   return {
     type: TASKS_REMOVE_TASK,
+    payload: data,
+  };
+}
+
+export function tasksSetTask(data: {task: ITask}) {
+  return {
+    type: TASKS_SET_TASK,
     payload: data,
   };
 }

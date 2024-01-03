@@ -9,6 +9,7 @@ import {
   TASKS_FETCH_REQUEST,
   TASKS_FETCH_SUCCESS,
   TASKS_REMOVE_TASK,
+  TASKS_SET_TASK,
 } from '../actions/tasks.actions';
 
 export interface IState {
@@ -154,11 +155,23 @@ export function reducer(state = initialState, action: IAction) {
           ...state.requests,
           tasksRequest: {
             ...state.requests.tasksRequest,
-            tasks: [
-              ...state.requests.tasksRequest.tasks.filter(
-                task => task._id !== action.payload.taskId,
-              ),
-            ],
+            tasks: state.requests.tasksRequest.tasks.filter(
+              task => task._id !== action.payload.taskId,
+            ),
+          },
+        },
+      };
+
+    case TASKS_SET_TASK:
+      return {
+        ...state,
+        requests: {
+          ...state.requests,
+          tasksRequest: {
+            ...state.requests.tasksRequest,
+            tasks: state.requests.tasksRequest.tasks.map(task =>
+              task._id === action.payload.task._id ? action.payload.task : task,
+            ),
           },
         },
       };
