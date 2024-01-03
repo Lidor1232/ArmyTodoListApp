@@ -13,11 +13,16 @@ export async function getTasks({
   limit: number;
 }): Promise<IGetTasksResponse> {
   const res = await todoListAxios({
-    method: 'GET',
+    method: 'POST',
     url: '/tasks',
     params: {
       page,
       limit,
+    },
+    data: {
+      terms: {
+        status: ITaskStatus.Created,
+      },
     },
   });
   return res.data;
