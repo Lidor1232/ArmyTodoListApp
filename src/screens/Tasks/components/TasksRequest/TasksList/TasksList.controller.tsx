@@ -11,8 +11,8 @@ export function onEndReached() {
   }
 }
 
-export function onRenderItem({item}: {item: ITask; index: number}) {
-  return <TaskItem item={item} />;
+export function onRenderItem({item, index}: {item: ITask; index: number}) {
+  return <TaskItem item={item} index={index} />;
 }
 
 export function onKeyExtractor(item: ITask) {

@@ -8,6 +8,7 @@ import {
   onRenderItem,
 } from './TasksList.controller';
 import {ListFooter} from './ListFooter/ListFooter';
+import {NoTasks} from './NoTasks/NoTasks';
 
 interface IProps {}
 
@@ -25,6 +26,7 @@ export const TasksList: FC<IProps> = React.memo(({}) => {
       keyExtractor={onKeyExtractor}
       ListFooterComponent={ListFooter}
       onEndReached={onEndReached}
+      ListEmptyComponent={NoTasks}
     />
   );
 });
