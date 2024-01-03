@@ -9,6 +9,7 @@ import IconEdit from '../../../../../../assets/svg/editOrange.svg';
 import {onPressDeleteTask, onPressUpdateTask} from './TaskItem.controller';
 import {useNavigation} from '@react-navigation/native';
 import {OptionButton} from './UI/OptionButton/OptionButton';
+import {CompleteTaskButton} from './CompleteTaskButton/CompleteTaskButton';
 
 interface IProps {
   item: ITask;
@@ -46,6 +47,7 @@ export const TaskItem: FC<IProps> = React.memo(({item}) => {
       <Text style={styles.createdAt}>{`נוצר ב - ${formattedCreatedAt}`}</Text>
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.description}>{item.description}</Text>
+      <CompleteTaskButton item={item} />
     </View>
   );
 });
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   description: {
-    marginBottom: 4,
+    marginBottom: 16,
     textAlign: 'right',
   },
   createdAt: {
